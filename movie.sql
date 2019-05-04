@@ -82,7 +82,7 @@ CREATE TABLE `cinema` (
   `img` varchar(45) DEFAULT NULL,
   `city` varchar(45) DEFAULT NULL,
   `address` varchar(45) DEFAULT NULL,
-  `star` int(11) DEFAULT NULL,
+  `star` float DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -189,11 +189,12 @@ DROP TABLE IF EXISTS `filmoffice`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `filmoffice` (
+  `id` int(11) NOT NULL,
   `filmId` int(11) NOT NULL,
-  `officeId` int(11) DEFAULT NULL,
+  `officeId` int(11) NOT NULL,
   `row` int(11) DEFAULT NULL,
   `col` int(11) DEFAULT NULL,
-  PRIMARY KEY (`filmId`)
+  PRIMARY KEY (`filmId`,`id`,`officeId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -252,4 +253,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-04 16:05:24
+-- Dump completed on 2019-05-04 16:40:31
