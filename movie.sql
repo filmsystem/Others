@@ -165,7 +165,7 @@ DROP TABLE IF EXISTS `filmcomment`;
 CREATE TABLE `filmcomment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userId` int(11) NOT NULL,
-  `recordId` int(11) NOT NULL,
+  `filmId` int(11) NOT NULL,
   `filmstar` int(11) NOT NULL,
   `comment` longtext,
   PRIMARY KEY (`id`)
@@ -253,4 +253,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-04 18:12:10
+-- Dump completed on 2019-05-04 18:30:56
