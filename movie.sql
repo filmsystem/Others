@@ -141,6 +141,7 @@ CREATE TABLE `film` (
   `casts` varchar(45) DEFAULT NULL,
   `year` int(11) DEFAULT NULL,
   `countries` varchar(45) DEFAULT NULL,
+  `type` varchar(45) DEFAULT NULL,
   `summary` longtext,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -253,4 +254,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-04 18:30:56
+-- Dump completed on 2019-05-04 19:42:51
