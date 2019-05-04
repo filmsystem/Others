@@ -55,6 +55,8 @@ CREATE TABLE `bookingrecord` (
   `paytime` timestamp(6) NULL DEFAULT NULL,
   `collectstring` varchar(45) NOT NULL,
   `status` int(11) DEFAULT NULL,
+  `row` int(11) DEFAULT NULL,
+  `col` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -82,7 +84,6 @@ CREATE TABLE `cinema` (
   `img` varchar(45) DEFAULT NULL,
   `city` varchar(45) DEFAULT NULL,
   `address` varchar(45) DEFAULT NULL,
-  `star` float DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -164,9 +165,8 @@ DROP TABLE IF EXISTS `filmcomment`;
 CREATE TABLE `filmcomment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userId` int(11) NOT NULL,
-  `filmId` int(11) NOT NULL,
+  `recordId` int(11) NOT NULL,
   `filmstar` int(11) NOT NULL,
-  `cinemastar` int(11) NOT NULL,
   `comment` longtext,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -253,4 +253,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-04 16:45:59
+-- Dump completed on 2019-05-04 18:12:10
