@@ -189,12 +189,12 @@ DROP TABLE IF EXISTS `filmoffice`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `filmoffice` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `filmId` int(11) NOT NULL,
   `officeId` int(11) NOT NULL,
   `row` int(11) DEFAULT NULL,
   `col` int(11) DEFAULT NULL,
-  PRIMARY KEY (`filmId`,`id`,`officeId`)
+  PRIMARY KEY (`id`,`filmId`,`officeId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -253,4 +253,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-04 16:40:31
+-- Dump completed on 2019-05-04 16:45:59
