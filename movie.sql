@@ -134,6 +134,13 @@ DROP TABLE IF EXISTS `film`;
 CREATE TABLE `film` (
   `id` int(11) NOT NULL,
   `name` varchar(45) NOT NULL,
+  `img` varchar(45) DEFAULT NULL,
+  `star` float DEFAULT NULL,
+  `directors` varchar(45) DEFAULT NULL,
+  `casts` varchar(45) DEFAULT NULL,
+  `year` int(11) DEFAULT NULL,
+  `countries` varchar(45) DEFAULT NULL,
+  `summary` longtext,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -245,4 +252,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-04 12:21:46
+-- Dump completed on 2019-05-04 16:05:24
