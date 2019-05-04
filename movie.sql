@@ -51,8 +51,8 @@ CREATE TABLE `bookingrecord` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userId` int(11) NOT NULL,
   `showId` int(11) NOT NULL,
-  `createtime` varchar(45) NOT NULL,
-  `paytime` varchar(45) NOT NULL,
+  `createtime` timestamp(6) NOT NULL,
+  `paytime` timestamp(6) NULL DEFAULT NULL,
   `collectstring` varchar(45) NOT NULL,
   `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -211,9 +211,9 @@ CREATE TABLE `filmshow` (
   `filmId` int(11) DEFAULT NULL,
   `cinemaId` int(11) DEFAULT NULL,
   `officeId` int(11) DEFAULT NULL,
-  `beginTime` varchar(45) DEFAULT NULL,
+  `beginTime` timestamp NOT NULL,
   `duration` varchar(45) DEFAULT NULL,
-  `seat` int(11) DEFAULT NULL,
+  `seat` varchar(45) DEFAULT NULL,
   `price` float DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -245,4 +245,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-22 16:17:13
+-- Dump completed on 2019-05-04 12:21:46
