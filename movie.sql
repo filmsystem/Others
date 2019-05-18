@@ -28,7 +28,7 @@ CREATE TABLE `administrator` (
   `password` varchar(45) NOT NULL,
   `img` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,6 +37,7 @@ CREATE TABLE `administrator` (
 
 LOCK TABLES `administrator` WRITE;
 /*!40000 ALTER TABLE `administrator` DISABLE KEYS */;
+INSERT INTO `administrator` VALUES (2,'peng','123','111'),(3,'xu','233','滑稽');
 /*!40000 ALTER TABLE `administrator` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -153,6 +154,7 @@ CREATE TABLE `film` (
 
 LOCK TABLES `film` WRITE;
 /*!40000 ALTER TABLE `film` DISABLE KEYS */;
+INSERT INTO `film` VALUES (1,'testAVG','233',3,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `film` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,7 +172,7 @@ CREATE TABLE `filmcomment` (
   `filmstar` int(11) NOT NULL,
   `comment` longtext,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -179,8 +181,26 @@ CREATE TABLE `filmcomment` (
 
 LOCK TABLES `filmcomment` WRITE;
 /*!40000 ALTER TABLE `filmcomment` DISABLE KEYS */;
+INSERT INTO `filmcomment` VALUES (1,111,1,1,'我觉得8行'),(2,111,1,2,'我觉得还行'),(3,111,1,3,'鼓励一下'),(4,111,1,4,'好看'),(5,111,1,5,'刘涛！');
 /*!40000 ALTER TABLE `filmcomment` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `filmcomment_AFTER_INSERT` AFTER INSERT ON `filmcomment` FOR EACH ROW BEGIN
+update film set star=(select avg(filmstar) from filmcomment where filmId=new.filmId) where id=new.filmId;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `filmoffice`
@@ -191,11 +211,11 @@ DROP TABLE IF EXISTS `filmoffice`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `filmoffice` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `filmId` int(11) NOT NULL,
+  `cinemaId` int(11) NOT NULL,
   `officeId` int(11) NOT NULL,
   `row` int(11) DEFAULT NULL,
   `col` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`,`filmId`,`officeId`)
+  PRIMARY KEY (`id`,`cinemaId`,`officeId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -216,7 +236,7 @@ DROP TABLE IF EXISTS `filmshow`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `filmshow` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `filmId` int(11) DEFAULT NULL,
   `cinemaId` int(11) DEFAULT NULL,
   `officeId` int(11) DEFAULT NULL,
@@ -254,4 +274,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-04 19:42:51
+-- Dump completed on 2019-05-18 20:57:48
