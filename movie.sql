@@ -28,7 +28,7 @@ CREATE TABLE `administrator` (
   `password` varchar(45) NOT NULL,
   `img` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `administrator` (
 
 LOCK TABLES `administrator` WRITE;
 /*!40000 ALTER TABLE `administrator` DISABLE KEYS */;
-INSERT INTO `administrator` VALUES (2,'peng','123','111'),(3,'xu','233','滑稽');
+INSERT INTO `administrator` VALUES (2,'peng','232','444'),(3,'xu','233','滑稽'),(5,'zou','qqq','1111111');
 /*!40000 ALTER TABLE `administrator` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -54,12 +54,12 @@ CREATE TABLE `bookingrecord` (
   `showId` int(11) NOT NULL,
   `createtime` timestamp(6) NOT NULL,
   `paytime` timestamp(6) NULL DEFAULT NULL,
-  `collectstring` varchar(45) NOT NULL,
+  `collectstring` varchar(45) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
-  `row` int(11) DEFAULT NULL,
+  `rowNum` int(11) DEFAULT NULL,
   `col` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,7 +68,7 @@ CREATE TABLE `bookingrecord` (
 
 LOCK TABLES `bookingrecord` WRITE;
 /*!40000 ALTER TABLE `bookingrecord` DISABLE KEYS */;
-INSERT INTO `bookingrecord` VALUES (1,1000,4,'2019-03-01 09:02:05.000000',NULL,'1212121',NULL,NULL,NULL),(2,1000,3,'2019-04-15 12:37:56.000000',NULL,'2121212',NULL,NULL,NULL),(3,1000,3,'2019-04-15 14:01:40.000000',NULL,'1111111',NULL,NULL,NULL);
+INSERT INTO `bookingrecord` VALUES (1,1000,4,'2019-03-01 09:02:05.000000',NULL,'1212121',NULL,NULL,NULL),(2,1000,3,'2019-04-15 12:37:56.000000',NULL,'2121212',NULL,NULL,NULL),(3,1000,3,'2019-04-15 14:01:40.000000',NULL,'1111111',NULL,NULL,NULL),(9,1001,5,'2019-05-24 12:10:42.662000','2019-05-24 12:14:35.552000',NULL,-1,3,3);
 /*!40000 ALTER TABLE `bookingrecord` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +87,7 @@ CREATE TABLE `cinema` (
   `city` varchar(45) DEFAULT NULL,
   `address` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=203 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=205 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +96,7 @@ CREATE TABLE `cinema` (
 
 LOCK TABLES `cinema` WRITE;
 /*!40000 ALTER TABLE `cinema` DISABLE KEYS */;
-INSERT INTO `cinema` VALUES (200,'轩影国际影城','123','111','上海','宝山区聚丰园路165号沃尔玛三楼'),(201,'大地影院上海弘基广场宝山店','123','222','上海','宝山区聚丰园路57弄弘基文化广场1号楼商场3楼'),(202,'DFC影城','123','333','上海','宝山区共和新路5288号1楼');
+INSERT INTO `cinema` VALUES (200,'轩影国际影城','333','454','上海','宝山区聚丰园路165号沃尔玛三楼'),(201,'大地影院上海弘基广场宝山店','123','222','上海','宝山区聚丰园路57弄弘基文化广场1号楼商场3楼'),(202,'DFC影城','123','333','上海','宝山区共和新路5288号1楼'),(204,'斐王影城','334','1111111','上海','场北路700号');
 /*!40000 ALTER TABLE `cinema` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -116,7 +116,7 @@ CREATE TABLE `customer` (
   `phonenum` varchar(45) DEFAULT NULL,
   `city` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1004 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1006 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -125,7 +125,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES (1000,'peng','111','233','男','13900000000','上海'),(1001,'xu','222','234','男','18800000000','上海'),(1002,'shen','333','235','女','18700000000','上海'),(1003,'wang','444','236','女','13700000000','南昌');
+INSERT INTO `customer` VALUES (1000,'peng','121','211','未知','15800000000','赣州'),(1001,'xu','222','234','男','18800000000','上海'),(1002,'shen','333','235','女','18700000000','上海'),(1003,'wang','444','236','女','13700000000','南昌'),(1005,'han','666','rainbow','男','13133331111','上海');
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -157,7 +157,7 @@ CREATE TABLE `film` (
 
 LOCK TABLES `film` WRITE;
 /*!40000 ALTER TABLE `film` DISABLE KEYS */;
-INSERT INTO `film` VALUES (1,'testAVG','233',3,NULL,NULL,NULL,NULL,'科幻',NULL),(2,'testType','234',NULL,NULL,NULL,NULL,NULL,'玄幻',NULL),(3,'testType2','235',NULL,NULL,NULL,NULL,NULL,'动作',NULL),(4,'testTy','236',NULL,NULL,NULL,NULL,NULL,'科幻',NULL),(5,'testTy2','237',NULL,NULL,NULL,NULL,NULL,'爱情',NULL),(6,'testTy3','238',NULL,NULL,NULL,NULL,NULL,'动作',NULL);
+INSERT INTO `film` VALUES (1,'testAVG','233',2.5,'我',NULL,NULL,NULL,'科幻',NULL),(2,'testType','234',NULL,NULL,'我',NULL,NULL,'玄幻',NULL),(3,'testType2','235',NULL,NULL,NULL,2001,NULL,'动作',NULL),(4,'testTy','236',NULL,NULL,NULL,NULL,'中国','科幻',NULL),(5,'testTy2','237',NULL,NULL,NULL,NULL,'中国, 美国','爱情',NULL),(6,'testTy3','238',NULL,'我, 你',NULL,NULL,NULL,'动作',NULL);
 /*!40000 ALTER TABLE `film` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -175,7 +175,7 @@ CREATE TABLE `filmcomment` (
   `filmstar` int(11) NOT NULL,
   `comment` longtext,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -216,10 +216,10 @@ CREATE TABLE `filmoffice` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cinemaId` int(11) NOT NULL,
   `officeId` int(11) NOT NULL,
-  `row` int(11) DEFAULT NULL,
+  `rowNum` int(11) DEFAULT NULL,
   `col` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`,`cinemaId`,`officeId`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -246,10 +246,10 @@ CREATE TABLE `filmshow` (
   `officeId` int(11) DEFAULT NULL,
   `beginTime` timestamp NOT NULL,
   `duration` varchar(45) DEFAULT NULL,
-  `seat` varchar(45) DEFAULT NULL,
+  `seat` varchar(2000) DEFAULT NULL,
   `price` float DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -258,7 +258,7 @@ CREATE TABLE `filmshow` (
 
 LOCK TABLES `filmshow` WRITE;
 /*!40000 ALTER TABLE `filmshow` DISABLE KEYS */;
-INSERT INTO `filmshow` VALUES (1,1,200,1,'2019-05-24 09:00:00','2',NULL,NULL),(2,1,200,1,'2019-05-24 11:30:00','2',NULL,NULL),(3,1,200,2,'2019-04-17 09:00:00','2',NULL,NULL),(4,1,200,2,'2019-03-04 03:00:00','2',NULL,NULL);
+INSERT INTO `filmshow` VALUES (1,1,200,1,'2019-05-24 09:00:00','2',NULL,NULL),(2,1,200,1,'2019-05-24 11:30:00','2',NULL,NULL),(3,1,200,2,'2019-04-17 09:00:00','2',NULL,NULL),(4,1,200,2,'2019-05-31 04:00:00','2',NULL,0),(5,2,200,2,'2019-05-31 20:00:00','3','000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',54);
 /*!40000 ALTER TABLE `filmshow` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -279,4 +279,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-24 17:20:27
+-- Dump completed on 2019-05-25  5:32:53
