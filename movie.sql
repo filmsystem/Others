@@ -26,9 +26,9 @@ CREATE TABLE `administrator` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
-  `img` varchar(45) DEFAULT NULL,
+  `img` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `administrator` (
 
 LOCK TABLES `administrator` WRITE;
 /*!40000 ALTER TABLE `administrator` DISABLE KEYS */;
-INSERT INTO `administrator` VALUES (2,'peng','232','444'),(3,'xu','233','滑稽'),(5,'zou','qqq','1111111');
+INSERT INTO `administrator` VALUES (2,'peng','232','444'),(3,'xu','233','滑稽');
 /*!40000 ALTER TABLE `administrator` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -54,7 +54,7 @@ CREATE TABLE `bookingrecord` (
   `showId` int(11) NOT NULL,
   `createtime` timestamp(6) NOT NULL,
   `paytime` timestamp(6) NULL DEFAULT NULL,
-  `collectstring` varchar(45) DEFAULT NULL,
+  `collectstring` varchar(255) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   `rowNum` int(11) DEFAULT NULL,
   `col` int(11) DEFAULT NULL,
@@ -83,11 +83,11 @@ CREATE TABLE `cinema` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
-  `img` varchar(45) DEFAULT NULL,
+  `img` varchar(255) DEFAULT NULL,
   `city` varchar(45) DEFAULT NULL,
   `address` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=205 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=208 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +96,7 @@ CREATE TABLE `cinema` (
 
 LOCK TABLES `cinema` WRITE;
 /*!40000 ALTER TABLE `cinema` DISABLE KEYS */;
-INSERT INTO `cinema` VALUES (200,'轩影国际影城','333','454','上海','宝山区聚丰园路165号沃尔玛三楼'),(201,'大地影院上海弘基广场宝山店','123','222','上海','宝山区聚丰园路57弄弘基文化广场1号楼商场3楼'),(202,'DFC影城','123','333','上海','宝山区共和新路5288号1楼'),(204,'斐王影城','334','1111111','上海','场北路700号');
+INSERT INTO `cinema` VALUES (200,'轩影国际影城','333','454','上海','宝山区聚丰园路165号沃尔玛三楼'),(201,'大地影院上海弘基广场宝山店','123','222','上海','宝山区聚丰园路57弄弘基文化广场1号楼商场3楼'),(202,'DFC影城','123','333','上海','宝山区共和新路5288号1楼'),(204,'斐王影城','334','1111111','上海','场北路700号'),(205,'橙天欢乐影院','139','656','赣州','赣县区梅林大街'),(206,'中影国际影城','12121','','赣州','黄金广场九方商业中心4楼'),(207,'test','111',NULL,'上海','上大路99号');
 /*!40000 ALTER TABLE `cinema` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -111,7 +111,7 @@ CREATE TABLE `customer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
-  `img` varchar(45) DEFAULT NULL,
+  `img` varchar(255) DEFAULT NULL,
   `gender` varchar(20) DEFAULT NULL,
   `phonenum` varchar(45) DEFAULT NULL,
   `city` varchar(45) DEFAULT NULL,
@@ -139,11 +139,11 @@ DROP TABLE IF EXISTS `film`;
 CREATE TABLE `film` (
   `id` int(11) NOT NULL,
   `name` varchar(45) NOT NULL,
-  `img` varchar(45) DEFAULT NULL,
+  `img` varchar(255) DEFAULT NULL,
   `star` float DEFAULT NULL,
-  `directors` varchar(45) DEFAULT NULL,
-  `casts` varchar(45) DEFAULT NULL,
-  `year` int(11) DEFAULT NULL,
+  `directors` varchar(100) DEFAULT NULL,
+  `casts` varchar(100) DEFAULT NULL,
+  `year` int(4) DEFAULT NULL,
   `countries` varchar(45) DEFAULT NULL,
   `type` varchar(45) DEFAULT NULL,
   `summary` longtext,
@@ -279,4 +279,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-25  5:32:53
+-- Dump completed on 2019-05-26 19:34:24
