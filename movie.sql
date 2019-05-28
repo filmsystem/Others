@@ -37,7 +37,7 @@ CREATE TABLE `administrator` (
 
 LOCK TABLES `administrator` WRITE;
 /*!40000 ALTER TABLE `administrator` DISABLE KEYS */;
-INSERT INTO `administrator` VALUES (2,'peng','232','444'),(3,'xu','233','滑稽');
+INSERT INTO `administrator` VALUES (2,'peng','233','444'),(3,'xu','233','滑稽');
 /*!40000 ALTER TABLE `administrator` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -49,7 +49,7 @@ DROP TABLE IF EXISTS `bookingrecord`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `bookingrecord` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` bigint(18) NOT NULL,
   `userId` int(11) NOT NULL,
   `showId` int(11) NOT NULL,
   `createtime` timestamp(6) NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE `bookingrecord` (
   `rowNum` int(11) DEFAULT NULL,
   `col` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,7 +68,7 @@ CREATE TABLE `bookingrecord` (
 
 LOCK TABLES `bookingrecord` WRITE;
 /*!40000 ALTER TABLE `bookingrecord` DISABLE KEYS */;
-INSERT INTO `bookingrecord` VALUES (1,1000,4,'2019-03-01 09:02:05.000000',NULL,'1212121',NULL,NULL,NULL),(2,1000,3,'2019-04-15 12:37:56.000000',NULL,'2121212',NULL,NULL,NULL),(3,1000,3,'2019-04-15 14:01:40.000000',NULL,'1111111',NULL,NULL,NULL),(9,1001,5,'2019-05-24 12:10:42.662000','2019-05-24 12:14:35.552000',NULL,-1,3,3);
+INSERT INTO `bookingrecord` VALUES (1,1000,4,'2019-03-01 09:02:05.000000',NULL,'1212121',NULL,NULL,NULL),(2,1000,3,'2019-04-15 12:37:56.000000',NULL,'2121212',NULL,NULL,NULL),(3,1000,3,'2019-04-15 14:01:40.000000',NULL,'1111111',NULL,NULL,NULL),(9,1001,5,'2019-05-24 12:10:42.662000','2019-05-24 12:14:35.552000',NULL,-1,3,3),(190528104325000000,1001,5,'2019-05-27 18:43:25.354000',NULL,NULL,-1,2,3);
 /*!40000 ALTER TABLE `bookingrecord` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +87,7 @@ CREATE TABLE `cinema` (
   `city` varchar(45) DEFAULT NULL,
   `address` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=208 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=216 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +96,7 @@ CREATE TABLE `cinema` (
 
 LOCK TABLES `cinema` WRITE;
 /*!40000 ALTER TABLE `cinema` DISABLE KEYS */;
-INSERT INTO `cinema` VALUES (200,'轩影国际影城','333','454','上海','宝山区聚丰园路165号沃尔玛三楼'),(201,'大地影院上海弘基广场宝山店','123','222','上海','宝山区聚丰园路57弄弘基文化广场1号楼商场3楼'),(202,'DFC影城','123','333','上海','宝山区共和新路5288号1楼'),(204,'斐王影城','334','1111111','上海','场北路700号'),(205,'橙天欢乐影院','139','656','赣州','赣县区梅林大街'),(206,'中影国际影城','12121','','赣州','黄金广场九方商业中心4楼'),(207,'test','111',NULL,'上海','上大路99号');
+INSERT INTO `cinema` VALUES (200,'轩影国际影城','333','454','上海','宝山区聚丰园路165号沃尔玛三楼'),(201,'大地影院上海弘基广场宝山店','123','222','上海','宝山区聚丰园路57弄弘基文化广场1号楼商场3楼'),(202,'DFC影城','111','333','上海','宝山区共和新路5288号1楼'),(204,'斐王影城','334','1111111','上海','场北路700号'),(205,'橙天欢乐影院','139','656','赣州','赣县区梅林大街赣县中学旁'),(206,'中影国际影城','12121','','赣州','黄金广场九方商业中心4楼'),(215,'test','111','','111','111');
 /*!40000 ALTER TABLE `cinema` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -125,7 +125,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES (1000,'peng','121','211','未知','15800000000','赣州'),(1001,'xu','222','234','男','18800000000','上海'),(1002,'shen','333','235','女','18700000000','上海'),(1003,'wang','444','236','女','13700000000','南昌'),(1005,'han','666','rainbow','男','13133331111','上海');
+INSERT INTO `customer` VALUES (1000,'peng','121','211','未知','15800000000','赣州'),(1001,'xu','111','234','男','18800000022','上海'),(1002,'shen','333','235','女','18700000000','上海'),(1003,'wang','444','236','女','13700000000','南昌'),(1005,'han','666','rainbow','男','13133331111','上海');
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -219,7 +219,7 @@ CREATE TABLE `filmoffice` (
   `rowNum` int(11) DEFAULT NULL,
   `col` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`,`cinemaId`,`officeId`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -228,7 +228,7 @@ CREATE TABLE `filmoffice` (
 
 LOCK TABLES `filmoffice` WRITE;
 /*!40000 ALTER TABLE `filmoffice` DISABLE KEYS */;
-INSERT INTO `filmoffice` VALUES (1,200,1,10,7),(2,200,2,12,10),(3,201,1,5,8),(4,201,2,6,9);
+INSERT INTO `filmoffice` VALUES (1,200,1,10,7),(2,200,2,12,10),(3,201,1,5,8),(4,201,2,6,9),(6,202,1,2,2);
 /*!40000 ALTER TABLE `filmoffice` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -279,4 +279,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-26 19:34:24
+-- Dump completed on 2019-05-28 10:51:39
