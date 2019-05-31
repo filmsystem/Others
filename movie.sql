@@ -58,7 +58,11 @@ CREATE TABLE `bookingrecord` (
   `status` int(11) DEFAULT NULL,
   `rowNum` int(11) DEFAULT NULL,
   `col` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `fk_userId_br_idx` (`userId`),
+  KEY `fk_showId_br_idx` (`showId`),
+  CONSTRAINT `fk_showId_br` FOREIGN KEY (`showId`) REFERENCES `filmshow` (`id`),
+  CONSTRAINT `fk_userId_br` FOREIGN KEY (`userId`) REFERENCES `customer` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -174,7 +178,11 @@ CREATE TABLE `filmcomment` (
   `filmId` int(11) NOT NULL,
   `filmstar` int(11) NOT NULL,
   `comment` longtext,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `fk_userId_idx` (`userId`),
+  KEY `fk_filmId_idx` (`filmId`),
+  CONSTRAINT `fk_fc1` FOREIGN KEY (`userId`) REFERENCES `customer` (`id`),
+  CONSTRAINT `fk_fc2` FOREIGN KEY (`filmId`) REFERENCES `film` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -184,7 +192,7 @@ CREATE TABLE `filmcomment` (
 
 LOCK TABLES `filmcomment` WRITE;
 /*!40000 ALTER TABLE `filmcomment` DISABLE KEYS */;
-INSERT INTO `filmcomment` VALUES (1,10000000,26835471,2,'我觉得8行'),(2,10000002,26835471,5,'我觉得还行'),(3,10000000,1,3,'鼓励一下'),(4,10000001,1,4,'好看'),(5,10000000,26835471,5,'刘涛！'),(7,10000000,26731376,3,'还行'),(8,10000000,26879542,2,'这是什么电影啊'),(9,10000000,26891256,3,'一般般'),(10,10000000,27042544,4,'挺有意思'),(11,10000000,27074316,4,'很感人'),(12,10000000,30158971,5,'太有意思了'),(13,10000000,30464313,1,'这种恐怖片没意思'),(14,10000000,30467175,2,'土得掉渣'),(15,10000000,33434703,1,'幸好看着看着睡着了');
+INSERT INTO `filmcomment` VALUES (1,10000000,26835471,2,'我觉得8行'),(2,10000002,26835471,5,'我觉得还行'),(3,10000000,6,3,'鼓励一下'),(4,10000001,6,4,'好看'),(5,10000000,26835471,5,'刘涛！'),(7,10000000,26731376,3,'还行'),(8,10000000,26879542,2,'这是什么电影啊'),(9,10000000,26891256,3,'一般般'),(10,10000000,27042544,4,'挺有意思'),(11,10000000,27074316,4,'很感人'),(12,10000000,30158971,5,'太有意思了'),(13,10000000,30464313,1,'这种恐怖片没意思'),(14,10000000,30467175,2,'土得掉渣'),(15,10000000,33434703,1,'幸好看着看着睡着了');
 /*!40000 ALTER TABLE `filmcomment` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -218,7 +226,9 @@ CREATE TABLE `filmoffice` (
   `officeId` int(11) NOT NULL,
   `rowNum` int(11) DEFAULT NULL,
   `col` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`,`cinemaId`,`officeId`)
+  PRIMARY KEY (`id`),
+  KEY `fk_cinemaId_idx` (`cinemaId`),
+  CONSTRAINT `fk_cinemaId` FOREIGN KEY (`cinemaId`) REFERENCES `cinema` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -248,7 +258,12 @@ CREATE TABLE `filmshow` (
   `duration` varchar(45) DEFAULT NULL,
   `seat` varchar(2000) NOT NULL,
   `price` float DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `fk_filmId_fs_idx` (`filmId`),
+  KEY `fk_cinemaId&officeId_fs_idx` (`cinemaId`,`officeId`),
+  KEY `fk_fs2_idx` (`officeId`),
+  CONSTRAINT `fk_fs1` FOREIGN KEY (`filmId`) REFERENCES `film` (`id`),
+  CONSTRAINT `fk_fs2` FOREIGN KEY (`officeId`) REFERENCES `filmoffice` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -279,4 +294,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-30 11:57:38
+-- Dump completed on 2019-05-31 14:17:43
